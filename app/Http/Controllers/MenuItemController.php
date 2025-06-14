@@ -68,13 +68,13 @@ class MenuItemController extends Controller
                 'message' => 'Menu Item not found',
             ]);
         }
+
         $menuItem->delete();
+
         return response()->json([
             "message" => 'Menu Item deleted successfully',
         ]);
 
     }
-
-    
 
 }

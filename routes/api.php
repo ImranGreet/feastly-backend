@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\OrganizationController;
@@ -10,6 +11,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::controller(AuthenticationController::class)->group(function () {
+    Route::post('/registration', 'createUser');
+});
 
 Route::middleware('auth:sanctum')->controller(CategoryController::class)->group(function () {
     Route::get('/categories', 'categories');
