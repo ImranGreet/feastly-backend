@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('users_id');
             $table->timestamps();
         });
     }
